@@ -4,21 +4,31 @@
 
 package com.mycompany.contagemregressiva;
 
+import java.util.Scanner;
+
 /**
  *
- * @author Monike/Oliv
+ * @author Monike Oliveira
  */
 public class ContagemRegressiva {
 
- public static void main(String[] args) {
-        for (int i = 10; i >= 1; i--) {
-            System.out.println(i);
-            try {
-                Thread.sleep(1000); // Pausa de 1 segundo
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+public static void main(String[] args) {
+    try (Scanner scanner = new Scanner(System.in)) {
+        int numero;
+
+        do {
+            System.out.print("Insira um número para contagem regressiva: ");
+            numero = scanner.nextInt();
+
+            if (numero > 0) {
+                System.out.println("Contagem regressiva:");
+                for (int i = numero; i >= 1; i--) {
+                    System.out.println(i);
+                }
+            } else {
+                System.out.println("Por favor, insira um número positivo.");
             }
-        }
-        System.out.println("Feliz Ano Novo!");
+        } while (numero <= 0);
+    }
     }
 }
